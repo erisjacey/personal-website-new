@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Typography } from '@mui/material';
 
 const Work = () => (
-  <Container>
+  <Container id="work">
     <Typography
       variant="h3"
     >

@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import {
   ThemeProvider, createTheme, responsiveFontSizes,
 } from '@mui/material/styles';
@@ -53,11 +55,13 @@ theme = responsiveFontSizes(theme);
 const App = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline enableColorScheme />
-    <HomePage />
-    <AboutPage />
-    <ExperiencePage />
-    <WorkPage />
-    <ContactPage />
+    <Router>
+      <HomePage />
+      <AboutPage />
+      <ExperiencePage />
+      <WorkPage />
+      <ContactPage />
+    </Router>
   </ThemeProvider>
 );
 

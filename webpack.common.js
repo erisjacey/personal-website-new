@@ -25,5 +25,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' }), new MiniCssExtractPlugin],
+  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' }), new MiniCssExtractPlugin()],
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src/'),
+    },
+  },
 };

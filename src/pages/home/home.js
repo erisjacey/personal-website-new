@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Box, Typography, Link, Button,
+  Container, Box, Typography, Link, Button, Slide,
 } from '@mui/material';
 import { Image } from 'mui-image';
 import PersonalPicture from 'myAssets/personal-picture.png';
@@ -20,27 +20,33 @@ const Home = () => (
       <Image
         src={PersonalPicture}
         width="70%"
-        duration={1000}
+        duration={2000}
         fit="cover"
-        shift="top"
-        shiftDuration={1000}
+        shift="right"
+        shiftDuration={2000}
         distance={500}
       />
-      <Typography variant="h1">
-        Eris Jacey
-      </Typography>
-      <Typography variant="h6">
-        GAME // WEB // FULL-STACK DEVELOPMENT
-      </Typography>
-      <Link
-        href={Resume}
-        target="_blank"
-        sx={{ marginTop: '5%' }}
-      >
-        <Button variant="outlined">
-          Resume
-        </Button>
-      </Link>
+      <Slide direction="right" in mountOnEnter unmountOnExit>
+        <Typography variant="h1">
+          Eris Jacey
+        </Typography>
+      </Slide>
+      <Slide direction="left" in mountOnEnter unmountOnExit>
+        <Typography variant="h6">
+          GAME // WEB // FULL-STACK DEVELOPMENT
+        </Typography>
+      </Slide>
+      <Slide direction="up" in mountOnEnter unmountOnExit>
+        <Link
+          href={Resume}
+          target="_blank"
+          sx={{ marginTop: '5%' }}
+        >
+          <Button variant="outlined">
+            Resume
+          </Button>
+        </Link>
+      </Slide>
     </Box>
   </Container>
 );

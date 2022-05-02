@@ -31,6 +31,7 @@ module.exports = {
       src: path.resolve(__dirname, 'src/'),
       myAssets: path.resolve(__dirname, 'src/assets'),
       myComponents: path.resolve(__dirname, 'src/components'),
+      myConstants: path.resolve(__dirname, 'src/constants'),
       myPages: path.resolve(__dirname, 'src/pages'),
     },
   },

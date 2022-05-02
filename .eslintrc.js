@@ -25,6 +25,7 @@ module.exports = {
           ['src', './src'],
           ['myAssets', './src/assets'],
           ['myComponents', './src/components'],
+          ['myConstants', './src/constants'],
           ['myPages', './src/pages'],
         ],
       },

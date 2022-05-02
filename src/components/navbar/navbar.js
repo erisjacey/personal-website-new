@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
-    margin: '10% 0%',
+    margin: '15% 0%',
     '&:hover': {
       color: theme.palette.primary.main,
       textDecoration: 'underline',
@@ -32,22 +32,22 @@ const Navbar = () => {
         />
       </Link>
       <Link to="#about" smooth className={classes.link}>
-        <Typography variant="body">
+        <Typography variant="body2">
           About
         </Typography>
       </Link>
       <Link to="#experience" smooth className={classes.link}>
-        <Typography variant="body">
+        <Typography variant="body2">
           Experience
         </Typography>
       </Link>
       <Link to="#work" smooth className={classes.link}>
-        <Typography variant="body">
+        <Typography variant="body2">
           Work
         </Typography>
       </Link>
       <Link to="#contact" smooth className={classes.link}>
-        <Typography variant="body">
+        <Typography variant="body2">
           Contact
         </Typography>
       </Link>

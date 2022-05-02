@@ -1,12 +1,13 @@
 import React from 'react';
 import { AppBar, Link } from '@mui/material';
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
+import { LINK_EMAIL, LINK_GITHUB, LINK_LINKEDIN } from 'myConstants';
 import VerticalLine from 'myComponents/verticalLine';
 
 const ExternalLinks = () => {
   const sx = {
     link: {
-      margin: '7% 0%',
+      margin: '9% 0%',
     },
     icon: {
       fontSize: 30,
@@ -19,7 +20,7 @@ const ExternalLinks = () => {
     >
       <VerticalLine />
       <Link
-        href="mailto:eris_jacey@hotmail.com"
+        href={LINK_EMAIL}
         target="_blank"
         rel="noopener"
         sx={sx.link}
@@ -27,7 +28,7 @@ const ExternalLinks = () => {
         <Email sx={sx.icon} />
       </Link>
       <Link
-        href="https://github.com/erisjacey"
+        href={LINK_GITHUB}
         target="_blank"
         rel="noopener"
         sx={sx.link}
@@ -35,7 +36,7 @@ const ExternalLinks = () => {
         <GitHub sx={sx.icon} />
       </Link>
       <Link
-        href="https://www.linkedin.com/in/eris-jacey-masagca-309795197/"
+        href={LINK_LINKEDIN}
         target="_blank"
         rel="noopener"
         sx={sx.link}

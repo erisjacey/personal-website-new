@@ -38,13 +38,21 @@ let theme = createTheme({
       fontSize: 70,
       fontWeight: 500,
     },
+    h2: {
+      fontSize: 60,
+      fontWeight: 500,
+    },
     h5: {
       fontSize: 20,
       fontWeight: 500,
     },
+    body1: {
+      fontSize: 18,
+      fontWeight: 400,
+    },
     body2: {
-      fontSize: 20,
-      fontWeight: 300,
+      fontSize: 15,
+      fontWeight: 400,
     },
     fontFamily: [
       'Roboto',
@@ -111,6 +119,8 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
+          fontSize: 15,
+          fontWeight: 400,
         },
       },
     },

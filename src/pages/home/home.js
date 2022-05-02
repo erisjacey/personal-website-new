@@ -13,6 +13,7 @@ const Home = () => (
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
+      textAlign="center"
       sx={{
         marginBottom: '10%',
       }}

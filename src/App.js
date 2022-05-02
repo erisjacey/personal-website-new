@@ -183,6 +183,7 @@ const App = () => {
           flexDirection="row"
           sx={{
             backgroundImage: `url(${Background})`,
+            backgroundSize: 'cover',
           }}
         >
           {renderExternalLinks()}

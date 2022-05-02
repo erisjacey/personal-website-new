@@ -33,6 +33,10 @@ let theme = createTheme({
     },
   },
   typography: {
+    h1: {
+      fontSize: 70,
+      fontWeight: 500,
+    },
     fontFamily: [
       'Roboto',
       'sans-serif',

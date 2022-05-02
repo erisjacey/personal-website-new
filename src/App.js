@@ -37,6 +37,14 @@ let theme = createTheme({
       fontSize: 70,
       fontWeight: 500,
     },
+    h5: {
+      fontSize: 20,
+      fontWeight: 500,
+    },
+    body2: {
+      fontSize: 20,
+      fontWeight: 300,
+    },
     fontFamily: [
       'Roboto',
       'sans-serif',
@@ -76,6 +84,7 @@ let theme = createTheme({
           minHeight: '100vh',
           alignItems: 'center',
           justifyContent: 'center',
+          background: 'none',
         },
       },
     },
@@ -101,6 +110,13 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
+        },
+      },
+    },
+    MuiIcon: {
+      styleOverrides: {
+        root: {
+          fontSize: '10rem',
         },
       },
     },

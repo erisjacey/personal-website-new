@@ -32,7 +32,7 @@ const Home = () => (
         </Typography>
       </Slide>
       <Slide direction="left" in mountOnEnter unmountOnExit>
-        <Typography variant="h6">
+        <Typography variant="h5">
           GAME // WEB // FULL-STACK DEVELOPMENT
         </Typography>
       </Slide>

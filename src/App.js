@@ -17,6 +17,7 @@ import AboutPage from 'myPages/about';
 import ExperiencePage from 'myPages/experience';
 import WorkPage from 'myPages/work';
 import ContactPage from 'myPages/contact';
+import Background from 'myAssets/background.png';
 import 'src/App.css';
 
 let theme = createTheme({
@@ -165,6 +166,9 @@ const App = () => {
         <Box
           display="flex"
           flexDirection="row"
+          sx={{
+            backgroundImage: `url(${Background})`,
+          }}
         >
           {renderExternalLinks()}
           {renderMainBody()}

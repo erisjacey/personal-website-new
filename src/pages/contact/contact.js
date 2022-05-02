@@ -36,6 +36,12 @@ const Contact = () => (
           Say Hi!
         </Button>
       </Link>
+      <Typography
+        variant="body2"
+        sx={{ position: 'absolute', bottom: '-395%' }}
+      >
+        Developed by Eris Jacey Masagca, 2022
+      </Typography>
     </Box>
   </Container>
 );

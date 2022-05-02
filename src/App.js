@@ -42,6 +42,10 @@ let theme = createTheme({
       fontSize: 60,
       fontWeight: 500,
     },
+    h3: {
+      fontSize: 18,
+      fontWeight: 500,
+    },
     h5: {
       fontSize: 20,
       fontWeight: 500,
@@ -93,6 +97,7 @@ let theme = createTheme({
           minHeight: '100vh',
           alignItems: 'center',
           justifyContent: 'center',
+          textAlign: 'center',
           background: 'none',
         },
       },

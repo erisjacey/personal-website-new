@@ -54,6 +54,7 @@ let theme = createTheme({
           minHeight: '100vh',
           alignItems: 'center',
           justifyContent: 'center',
+          background: 'none',
         },
       },
     },

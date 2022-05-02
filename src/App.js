@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
 import {
   ThemeProvider, createTheme, responsiveFontSizes,
 } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
+import { Box } from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import Navbar from 'myComponents/navbar';
 import HomePage from 'myPages/home';
 import AboutPage from 'myPages/about';
 import ExperiencePage from 'myPages/experience';
@@ -47,22 +48,61 @@ let theme = createTheme({
         },
       },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          minHeight: '100vh',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      },
+    },
   },
 });
 
 theme = responsiveFontSizes(theme);
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline enableColorScheme />
-    <Router>
-      <HomePage />
-      <AboutPage />
-      <ExperiencePage />
-      <WorkPage />
-      <ContactPage />
-    </Router>
-  </ThemeProvider>
-);
+const App = () => {
+  const renderMainBody = () => (
+    <Box
+      display="flex"
+      flexDirection="row"
+      flexGrow={1}
+    >
+      <Box
+        display="flex"
+        flexDirection="column"
+        flexGrow={1}
+      >
+        <HomePage />
+        <AboutPage />
+        <ExperiencePage />
+        <WorkPage />
+        <ContactPage />
+      </Box>
+    </Box>
+  );
+
+  const renderNavbar = () => (
+    <Box flexGrow={0}>
+      <Navbar />
+    </Box>
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline enableColorScheme />
+      <Router>
+        <Box
+          display="flex"
+          flexDirection="row"
+        >
+          {renderMainBody()}
+          {renderNavbar()}
+        </Box>
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;

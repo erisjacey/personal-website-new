@@ -58,6 +58,10 @@ let theme = createTheme({
       fontSize: 15,
       fontWeight: 400,
     },
+    subtitle1: {
+      fontSize: 17,
+      fontWeight: 500,
+    },
     fontFamily: [
       'Roboto',
       'sans-serif',

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Box, Typography } from '@mui/material';
+import {
+  Container, Box, Typography, Grid,
+} from '@mui/material';
 import LogoNUS from 'myAssets/experience/logo_nus.png';
 import LogoACJC from 'myAssets/experience/logo_acjc.png';
 import LogoMatchub from 'myAssets/experience/logo_matchub.png';
@@ -7,6 +9,7 @@ import TranscriptNUS from 'myAssets/experience/transcript_nus.pdf';
 import TranscriptACJC from 'myAssets/experience/transcript_acjc.pdf';
 import TeachingFeedbackReports from 'myAssets/experience/teaching-feedback-reports.pdf';
 import { WEBSITE_MATCHUB } from 'myConstants';
+import AcademicPaper from 'myComponents/experience/academicPaper';
 
 const AcademicExperience = [
   {
@@ -66,41 +69,63 @@ const WorkExperience = [
   },
 ];
 
-const Experience = () => (
-  <Container id="experience">
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="flex-start"
-      justifyContent="flex-start"
-      textAlign="justify"
-      sx={{ flexBasis: '100%' }}
-    >
-      <Typography
-        variant="h2"
-      >
-        Experience
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ marginTop: '1%' }}
-      >
-        Through my academic and working journeys, I have learned, excelled and grown significantly.
-      </Typography>
+const Experience = () => {
+  const renderAcademicExperience = () => (
+    <>
       <Typography
         variant="h3"
-        sx={{ marginTop: '1%' }}
+        sx={{ margin: '1% 0%' }}
       >
         ACADEMIC
       </Typography>
-      <Typography
-        variant="h3"
-        sx={{ marginTop: '1%' }}
+      <Grid
+        container
+        spacing={3}
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="flex-start"
       >
-        WORK
-      </Typography>
-    </Box>
-  </Container>
-);
+        {AcademicExperience.map((school) => (
+          <Grid item>
+            <AcademicPaper school={school} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  );
+
+  return (
+    <Container id="experience">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="flex-start"
+        justifyContent="flex-start"
+        textAlign="justify"
+        sx={{ flexBasis: '100%' }}
+      >
+        <Typography
+          variant="h2"
+        >
+          Experience
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ marginTop: '1%' }}
+        >
+          Through my academic and working journeys,
+          I have learned, excelled and grown significantly.
+        </Typography>
+        {renderAcademicExperience()}
+        <Typography
+          variant="h3"
+          sx={{ marginTop: '1%' }}
+        >
+          WORK
+        </Typography>
+      </Box>
+    </Container>
+  );
+};
 
 export default Experience;

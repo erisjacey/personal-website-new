@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Link } from '@mui/material';
+import { AppBar, Link, Slide } from '@mui/material';
 import { Email, GitHub, LinkedIn } from '@mui/icons-material';
 import { LINK_EMAIL, LINK_GITHUB, LINK_LINKEDIN } from 'myConstants';
 import VerticalLine from 'myComponents/verticalLine';
@@ -14,37 +14,45 @@ const ExternalLinks = () => {
     },
   };
   return (
-    <AppBar
-      elevation={0}
-      position="sticky"
+    <Slide
+      direction="right"
+      in
+      mountOnEnter
+      unmountOnExit
+      timeout={{ enter: 2000, exit: 2000 }}
     >
-      <VerticalLine />
-      <Link
-        href={LINK_EMAIL}
-        target="_blank"
-        rel="noopener"
-        sx={sx.link}
+      <AppBar
+        elevation={0}
+        position="sticky"
       >
-        <Email sx={sx.icon} />
-      </Link>
-      <Link
-        href={LINK_GITHUB}
-        target="_blank"
-        rel="noopener"
-        sx={sx.link}
-      >
-        <GitHub sx={sx.icon} />
-      </Link>
-      <Link
-        href={LINK_LINKEDIN}
-        target="_blank"
-        rel="noopener"
-        sx={sx.link}
-      >
-        <LinkedIn sx={sx.icon} />
-      </Link>
-      <VerticalLine />
-    </AppBar>
+        <VerticalLine />
+        <Link
+          href={LINK_EMAIL}
+          target="_blank"
+          rel="noopener"
+          sx={sx.link}
+        >
+          <Email sx={sx.icon} />
+        </Link>
+        <Link
+          href={LINK_GITHUB}
+          target="_blank"
+          rel="noopener"
+          sx={sx.link}
+        >
+          <GitHub sx={sx.icon} />
+        </Link>
+        <Link
+          href={LINK_LINKEDIN}
+          target="_blank"
+          rel="noopener"
+          sx={sx.link}
+        >
+          <LinkedIn sx={sx.icon} />
+        </Link>
+        <VerticalLine />
+      </AppBar>
+    </Slide>
   );
 };
 

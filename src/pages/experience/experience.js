@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
-  Container, Box, Typography, Grid,
+  Container, Box, Typography, Grid, Slide,
 } from '@mui/material';
+import VisibilitySensor from 'react-visibility-sensor';
 import LogoNUS from 'myAssets/experience/logo_nus.png';
 import LogoACJC from 'myAssets/experience/logo_acjc.png';
 import LogoMatchub from 'myAssets/experience/logo_matchub.png';
@@ -71,80 +72,144 @@ const WorkExperience = [
 ];
 
 const Experience = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
+
   const renderAcademicExperience = () => (
     <>
-      <Typography
-        variant="h3"
-        sx={{ margin: '1% 0%' }}
+      <Slide
+        direction="right"
+        in={isVisible}
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+        container={containerRef.current}
       >
-        ACADEMIC
-      </Typography>
-      <Grid
-        container
-        spacing={3}
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="flex-start"
+        <Typography
+          variant="h3"
+          sx={{ margin: '1% 0%' }}
+        >
+          ACADEMIC
+        </Typography>
+      </Slide>
+      <Slide
+        direction="right"
+        in={isVisible}
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+        container={containerRef.current}
       >
-        {AcademicExperience.map((school) => (
-          <Grid item>
-            <AcademicPaper school={school} />
-          </Grid>
-        ))}
-      </Grid>
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+        >
+          {AcademicExperience.map((school) => (
+            <Grid item>
+              <AcademicPaper school={school} />
+            </Grid>
+          ))}
+        </Grid>
+      </Slide>
     </>
   );
 
   const renderWorkExperience = () => (
     <>
-      <Typography
-        variant="h3"
-        sx={{ margin: '1% 0%' }}
+      <Slide
+        direction="left"
+        in={isVisible}
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+        container={containerRef.current}
       >
-        WORK
-      </Typography>
-      <Grid
-        container
-        spacing={3}
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="flex-start"
+        <Typography
+          variant="h3"
+          sx={{ margin: '1% 0%' }}
+        >
+          WORK
+        </Typography>
+      </Slide>
+      <Slide
+        direction="left"
+        in={isVisible}
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+        container={containerRef.current}
       >
-        {WorkExperience.map((job) => (
-          <Grid item>
-            <WorkPaper job={job} />
-          </Grid>
-        ))}
-      </Grid>
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+        >
+          {WorkExperience.map((job) => (
+            <Grid item>
+              <WorkPaper job={job} />
+            </Grid>
+          ))}
+        </Grid>
+      </Slide>
     </>
   );
 
   return (
-    <Container id="experience">
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
-        justifyContent="flex-start"
-        textAlign="justify"
-        sx={{ flexBasis: '100%' }}
-      >
-        <Typography
-          variant="h2"
+    <VisibilitySensor
+      partialVisibility
+      onChange={(visibility) => {
+        setIsVisible(visibility);
+      }}
+    >
+      <Container id="experience" ref={containerRef}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="flex-start"
+          justifyContent="flex-start"
+          textAlign="justify"
+          sx={{ flexBasis: '100%' }}
         >
-          Experience
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ marginTop: '1%' }}
-        >
-          Through my academic and working journeys,
-          I have learned, excelled and grown significantly.
-        </Typography>
-        {renderAcademicExperience()}
-        {renderWorkExperience()}
-      </Box>
-    </Container>
+          <Slide
+            direction="right"
+            in={isVisible}
+            mountOnEnter
+            unmountOnExit
+            timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
+          >
+            <Typography
+              variant="h2"
+            >
+              Experience
+            </Typography>
+          </Slide>
+          <Slide
+            direction="right"
+            in={isVisible}
+            mountOnEnter
+            unmountOnExit
+            timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
+          >
+            <Typography
+              variant="body1"
+              sx={{ marginTop: '1%' }}
+            >
+              Through my academic and working journeys,
+              I have learned, excelled and grown significantly.
+            </Typography>
+          </Slide>
+          {renderAcademicExperience()}
+          {renderWorkExperience()}
+        </Box>
+      </Container>
+    </VisibilitySensor>
   );
 };
 

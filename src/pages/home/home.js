@@ -27,17 +27,35 @@ const Home = () => (
         shiftDuration={2000}
         distance={500}
       />
-      <Slide direction="right" in mountOnEnter unmountOnExit>
+      <Slide
+        direction="right"
+        in
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+      >
         <Typography variant="h1">
           Eris Jacey
         </Typography>
       </Slide>
-      <Slide direction="left" in mountOnEnter unmountOnExit>
+      <Slide
+        direction="left"
+        in
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+      >
         <Typography variant="h5">
           GAME // WEB // FULL-STACK DEVELOPMENT
         </Typography>
       </Slide>
-      <Slide direction="up" in mountOnEnter unmountOnExit>
+      <Slide
+        direction="up"
+        in
+        mountOnEnter
+        unmountOnExit
+        timeout={{ enter: 2000, exit: 2000 }}
+      >
         <Link
           href={Resume}
           target="_blank"

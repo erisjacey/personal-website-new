@@ -65,17 +65,17 @@ let theme = createTheme({
   },
   transitions: {
     duration: {
-      shortest: 1500,
-      shorter: 2000,
-      short: 2500,
+      shortest: 150,
+      shorter: 200,
+      short: 250,
       // most basic recommended timing
-      standard: 3000,
+      standard: 300,
       // this is to be used in complex animations
-      complex: 3750,
+      complex: 375,
       // recommended when something is entering screen
-      enteringScreen: 2250,
+      enteringScreen: 225,
       // recommended when something is leaving screen
-      leavingScreen: 1950,
+      leavingScreen: 195,
     },
     easing: {
       // This is the most common easing curve.

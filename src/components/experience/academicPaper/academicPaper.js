@@ -1,13 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Link, Typography, Paper, Grid,
+  Link, Typography, Paper, Grid, Box,
 } from '@mui/material';
 
 const style = {
   root: {
-    padding: '4% 3%',
+    display: 'flex',
+    position: 'relative',
     minWidth: 400,
+    width: '100%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    position: 'relative',
+    padding: '4% 3%',
+    border: 'none',
+    borderRadius: '10%',
+  },
+  overlay: {
+    position: 'absolute',
+    display: 'flex',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backdropFilter: 'blur(18px)',
+    borderRadius: '10%',
+    opacity: 0.0,
+    '&:hover': {
+      opacity: 1.0,
+    },
+  },
+  link: {
+    textDecoration: 'underline',
   },
 };
 
@@ -22,14 +53,14 @@ const AcademicPaper = ({ school }) => {
       target="_blank"
       rel="noopener"
     >
-      <Paper>
+      <Paper elevation={0} sx={style.root}>
         <Grid
           container
           direction="row"
           justifyContent="center"
           alignItems="center"
           textAlign="center"
-          sx={style.root}
+          sx={style.paper}
         >
           <Grid item xs={4}>
             <img
@@ -45,7 +76,6 @@ const AcademicPaper = ({ school }) => {
             justifyContent="center"
             alignItems="flex-start"
             textAlign="left"
-            sx={style.child}
           >
             <Grid item>
               <Typography variant="subtitle1">
@@ -69,6 +99,11 @@ const AcademicPaper = ({ school }) => {
             </Grid>
           </Grid>
         </Grid>
+        <Box sx={style.overlay}>
+          <Typography variant="subtitle1" sx={style.link}>
+            View Transcript
+          </Typography>
+        </Box>
       </Paper>
     </Link>
   );

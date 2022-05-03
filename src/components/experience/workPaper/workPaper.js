@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Link, Typography, Paper, Grid, Box,
+  Link, Typography, Paper, Grid, Box, Chip,
 } from '@mui/material';
 
 const style = {
@@ -9,15 +9,16 @@ const style = {
     display: 'flex',
     position: 'relative',
     minWidth: 400,
+    maxWidth: 570,
     width: '100%',
-    height: 150,
+    height: 200,
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   paper: {
     position: 'relative',
-    padding: '4% 3%',
+    padding: '4% 1%',
     border: 'none',
     borderRadius: '10%',
   },
@@ -41,16 +42,19 @@ const style = {
   link: {
     textDecoration: 'underline',
   },
+  chip: {
+    margin: 0.5,
+  },
 };
 
-const AcademicPaper = ({ school }) => {
+const WorkPaper = ({ job }) => {
   const {
-    title, logo, description, duration, grade, transcript,
-  } = school;
+    title, logo, role, duration, modules, skills, link,
+  } = job;
 
   return (
     <Link
-      href={transcript}
+      href={link.url}
       target="_blank"
       rel="noopener"
     >
@@ -58,12 +62,12 @@ const AcademicPaper = ({ school }) => {
         <Grid
           container
           direction="row"
-          justifyContent="center"
+          justifyContent="space-around"
           alignItems="center"
           textAlign="center"
           sx={style.paper}
         >
-          <Grid item xs={4}>
+          <Grid item>
             <img
               src={logo}
               alt={`Logo for ${title}`}
@@ -71,7 +75,7 @@ const AcademicPaper = ({ school }) => {
           </Grid>
           <Grid
             item
-            xs={8}
+            xs={9}
             container
             direction="column"
             justifyContent="center"
@@ -85,7 +89,7 @@ const AcademicPaper = ({ school }) => {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
-                {description}
+                {role}
               </Typography>
             </Grid>
             <Grid item>
@@ -95,14 +99,17 @@ const AcademicPaper = ({ school }) => {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
-                {grade}
+                {modules.reduce((acc, mod) => (acc === '' ? mod : `${acc}, ${mod}`), '')}
               </Typography>
+            </Grid>
+            <Grid item>
+              {skills.map((skill) => <Chip label={skill} size="small" sx={style.chip} />)}
             </Grid>
           </Grid>
         </Grid>
         <Box sx={style.overlay}>
           <Typography variant="subtitle1" sx={style.link}>
-            View Transcript
+            {link.name}
           </Typography>
         </Box>
       </Paper>
@@ -110,15 +117,19 @@ const AcademicPaper = ({ school }) => {
   );
 };
 
-AcademicPaper.propTypes = {
-  school: PropTypes.shape({
+WorkPaper.propTypes = {
+  job: PropTypes.shape({
     title: PropTypes.string.isRequired,
     logo: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
     duration: PropTypes.string.isRequired,
-    grade: PropTypes.string.isRequired,
-    transcript: PropTypes.string.isRequired,
+    modules: PropTypes.arrayOf(PropTypes.string).isRequired,
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+    link: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
-export default AcademicPaper;
+export default WorkPaper;

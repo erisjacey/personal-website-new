@@ -10,6 +10,7 @@ import TranscriptACJC from 'myAssets/experience/transcript_acjc.pdf';
 import TeachingFeedbackReports from 'myAssets/experience/teaching-feedback-reports.pdf';
 import { WEBSITE_MATCHUB } from 'myConstants';
 import AcademicPaper from 'myComponents/experience/academicPaper';
+import WorkPaper from 'myComponents/experience/workPaper';
 
 const AcademicExperience = [
   {
@@ -94,6 +95,30 @@ const Experience = () => {
     </>
   );
 
+  const renderWorkExperience = () => (
+    <>
+      <Typography
+        variant="h3"
+        sx={{ margin: '1% 0%' }}
+      >
+        WORK
+      </Typography>
+      <Grid
+        container
+        spacing={3}
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+      >
+        {WorkExperience.map((job) => (
+          <Grid item>
+            <WorkPaper job={job} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  );
+
   return (
     <Container id="experience">
       <Box
@@ -117,12 +142,7 @@ const Experience = () => {
           I have learned, excelled and grown significantly.
         </Typography>
         {renderAcademicExperience()}
-        <Typography
-          variant="h3"
-          sx={{ marginTop: '1%' }}
-        >
-          WORK
-        </Typography>
+        {renderWorkExperience()}
       </Box>
     </Container>
   );

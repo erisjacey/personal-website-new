@@ -147,6 +147,13 @@ let theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.8rem',
+        },
+      },
+    },
   },
 });
 

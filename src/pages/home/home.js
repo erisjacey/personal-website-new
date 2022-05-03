@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Container, Box, Typography, Link, Button, Slide,
 } from '@mui/material';
@@ -8,15 +8,16 @@ import Resume from 'myAssets/resume_eris-jacey-masagca_jan-2022.pdf';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
 
   return (
     <VisibilitySensor
-      // partialVisibility
+      partialVisibility
       onChange={(visibility) => {
         setIsVisible(visibility);
       }}
     >
-      <Container id="home">
+      <Container id="home" ref={containerRef}>
         <Box
           display="flex"
           flexDirection="column"
@@ -33,6 +34,7 @@ const Home = () => {
             mountOnEnter
             unmountOnExit
             timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
           >
             <img
               src={PersonalPicture}
@@ -47,6 +49,7 @@ const Home = () => {
             mountOnEnter
             unmountOnExit
             timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
           >
             <Typography variant="h1">
               Eris Jacey
@@ -58,6 +61,7 @@ const Home = () => {
             mountOnEnter
             unmountOnExit
             timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
           >
             <Typography variant="h5">
               GAME // WEB // FULL-STACK DEVELOPMENT
@@ -69,6 +73,7 @@ const Home = () => {
             mountOnEnter
             unmountOnExit
             timeout={{ enter: 2000, exit: 2000 }}
+            container={containerRef.current}
           >
             <Link
               href={Resume}

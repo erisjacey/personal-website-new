@@ -31,6 +31,7 @@ const Navbar = () => {
       <AppBar
         elevation={0}
         position="sticky"
+        sx={{ display: { xs: 'none', lg: 'flex' } }}
       >
         <Link to="#home" smooth className={classes.link}>
           <Image

@@ -24,6 +24,7 @@ const ExternalLinks = () => {
       <AppBar
         elevation={0}
         position="sticky"
+        sx={{ display: { xs: 'none', lg: 'flex' } }}
       >
         <VerticalLine />
         <Link

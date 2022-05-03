@@ -75,7 +75,7 @@ const About = () => {
             open={open}
             onClose={handleClose}
             closeAfterTransition
-            // BackdropComponent={Backdrop}
+            BackdropComponent={Backdrop}
             BackdropProps={{
               timeout: 500,
             }}

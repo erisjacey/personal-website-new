@@ -61,8 +61,8 @@ const WorkExperience = [
       'CS2030S',
     ],
     skills: [
-      'Java', 'JavaScript', 'Python', 'Vim', 'Functional Programming',
-      'Object-Oriented Programming', 'Procedural Programming',
+      'Java', 'JavaScript', 'Python', 'Vim',
+      'Functional Programming', 'OOP',
     ],
     link: {
       name: 'View Teaching Feedback Reports',

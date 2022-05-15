@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Link, Typography, Paper, Grid, Box, Chip,
+  Link, Typography, Paper, Grid, Box, Chip, Stack,
 } from '@mui/material';
 
 const style = {
@@ -9,7 +9,7 @@ const style = {
     display: 'flex',
     position: 'relative',
     minWidth: 400,
-    maxWidth: 570,
+    maxWidth: 450,
     width: '100%',
     height: 200,
     textAlign: 'center',
@@ -42,9 +42,6 @@ const style = {
   link: {
     textDecoration: 'underline',
   },
-  chip: {
-    margin: 0.5,
-  },
 };
 
 const WorkPaper = ({ job }) => {
@@ -75,36 +72,41 @@ const WorkPaper = ({ job }) => {
           </Grid>
           <Grid
             item
-            xs={9}
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="flex-start"
-            textAlign="left"
+            xs={8}
           >
-            <Grid item>
+            <Stack
+              direction="column"
+              justifyContent="center"
+              alignItems="baseline"
+              textAlign="left"
+              spacing={0}
+            >
               <Typography variant="subtitle1">
                 {title}
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
                 {role}
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
                 {duration}
               </Typography>
-            </Grid>
-            <Grid item>
               <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
                 {modules.reduce((acc, mod) => (acc === '' ? mod : `${acc}, ${mod}`), '')}
               </Typography>
-            </Grid>
-            <Grid item>
-              {skills.map((skill) => <Chip label={skill} size="small" sx={style.chip} />)}
-            </Grid>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                spacing={0.5}
+              >
+                {skills.map((skill) => (
+                  <Grid item>
+                    <Chip label={skill} size="small" sx={style.chip} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Stack>
           </Grid>
         </Grid>
         <Box sx={style.overlay}>

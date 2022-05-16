@@ -43,7 +43,7 @@ const ContactModal = ({ open, handleClose }) => (
           alignItems="stretch"
           spacing={1.5}
         >
-          <Typography id="transition-modal-title" variant="h3">
+          <Typography id="transition-modal-title" variant="h3" sx={{ marginBottom: '1%' }}>
             Contact Me
           </Typography>
           <Stack

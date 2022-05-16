@@ -86,7 +86,7 @@ const Experience = () => {
         container={containerRef.current}
       >
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{ margin: '1% 0%' }}
         >
           ACADEMIC
@@ -128,7 +128,7 @@ const Experience = () => {
         container={containerRef.current}
       >
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{ margin: '1% 0%' }}
         >
           WORK

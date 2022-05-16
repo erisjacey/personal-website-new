@@ -43,6 +43,10 @@ let theme = createTheme({
       fontWeight: 500,
     },
     h3: {
+      fontSize: 40,
+      fontWeight: 500,
+    },
+    h4: {
       fontSize: 18,
       fontWeight: 500,
     },
@@ -130,6 +134,7 @@ let theme = createTheme({
           textTransform: 'none',
           fontSize: 15,
           fontWeight: 400,
+          borderRadius: '0.5em',
         },
       },
     },

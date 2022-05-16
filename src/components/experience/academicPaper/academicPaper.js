@@ -14,7 +14,7 @@ const style = {
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: '3%',
+    borderRadius: '0.5em',
   },
   paper: {
     position: 'relative',
@@ -32,7 +32,7 @@ const style = {
     alignItems: 'center',
     justifyContent: 'center',
     backdropFilter: 'blur(18px)',
-    borderRadius: '3%',
+    borderRadius: '0.5em',
     opacity: 0.0,
     '&:hover': {
       opacity: 1.0,

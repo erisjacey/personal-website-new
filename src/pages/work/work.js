@@ -23,13 +23,13 @@ const Work = () => (
         Here&apos;s the list of projects and products I have built.
       </Typography>
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{ marginTop: '1%' }}
       >
         DailyCakeyBot
       </Typography>
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{ marginTop: '1%' }}
       >
         Upside Down

@@ -53,7 +53,14 @@ const Contact = () => {
           >
             <Typography
               variant="body1"
-              sx={{ width: '60%', marginTop: '1%' }}
+              sx={{
+                width: {
+                  xs: '90%',
+                  md: '75%',
+                  lg: '60%',
+                },
+                marginTop: '1%',
+              }}
             >
               Have a potential position or project you&apos;d like to collaborate with?
               Or do you just want to say hi?

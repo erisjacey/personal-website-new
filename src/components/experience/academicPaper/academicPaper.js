@@ -16,6 +16,10 @@ const style = {
     justifyContent: 'center',
     borderRadius: '0.5em',
   },
+  img: {
+    maxWidth: '100px',
+    maxHeight: '100px',
+  },
   paper: {
     position: 'relative',
     padding: '4% 3%',
@@ -67,6 +71,7 @@ const AcademicPaper = ({ school }) => {
             <img
               src={logo}
               alt={`Logo for ${title}`}
+              style={style.img}
             />
           </Grid>
           <Grid

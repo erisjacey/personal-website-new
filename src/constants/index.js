@@ -6,10 +6,12 @@ const LINK_LINKEDIN = 'https://www.linkedin.com/in/eris-jacey-masagca-309795197/
 
 // Websites
 const WEBSITE_MATCHUB = 'https://matchub.co/';
+const WEBSITE_VISA = 'https://www.visa.com.sg/';
 
 export {
   LINK_EMAIL,
   LINK_GITHUB,
   LINK_LINKEDIN,
   WEBSITE_MATCHUB,
+  WEBSITE_VISA,
 };

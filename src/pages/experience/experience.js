@@ -6,10 +6,11 @@ import VisibilitySensor from 'react-visibility-sensor';
 import LogoNUS from 'myAssets/experience/logo_nus.png';
 import LogoACJC from 'myAssets/experience/logo_acjc.png';
 import LogoMatchub from 'myAssets/experience/logo_matchub.png';
+import LogoVisa from 'myAssets/experience/logo_visa.png';
 import TranscriptNUS from 'myAssets/experience/transcript_nus.pdf';
 import TranscriptACJC from 'myAssets/experience/transcript_acjc.pdf';
 import TeachingFeedbackReports from 'myAssets/experience/teaching-feedback-reports.pdf';
-import { WEBSITE_MATCHUB } from 'myConstants';
+import { WEBSITE_MATCHUB, WEBSITE_VISA } from 'myConstants';
 import AcademicPaper from 'myComponents/experience/academicPaper';
 import WorkPaper from 'myComponents/experience/workPaper';
 
@@ -33,6 +34,21 @@ const AcademicExperience = [
 ];
 
 const WorkExperience = [
+  {
+    title: 'Visa',
+    logo: LogoVisa,
+    role: 'Software Engineer Intern',
+    duration: 'May 2022 - Aug 2022',
+    modules: [],
+    skills: [
+      'Back-End', 'Java', 'Spring', 'Jira',
+      'Jenkins', 'Openshift', 'Splunk',
+    ],
+    link: {
+      name: 'Visit Website',
+      url: WEBSITE_VISA,
+    },
+  },
   {
     title: 'MatcHub.co',
     logo: LogoMatchub,

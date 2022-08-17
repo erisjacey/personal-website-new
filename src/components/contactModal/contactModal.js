@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   Typography, Fade, Box, Modal, Backdrop, Stack,
@@ -27,38 +27,19 @@ const style = {
 };
 
 const ContactModal = ({ open, handleClose }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-
-  const constructForm = () => ({
-    first_name: firstName,
-    last_name: lastName,
-    from_email: email,
-    subject,
-    message,
-  });
-
-  const clearTextFields = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setSubject('');
-    setMessage('');
-  };
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, constructForm(), EMAILJS_PUBLIC_KEY)
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
       .then((result) => {
         console.log(result.text);
-        clearTextFields();
       }, (error) => {
         console.log(error.text);
       });
+
+    handleClose();
   };
 
   return (
@@ -74,40 +55,41 @@ const ContactModal = ({ open, handleClose }) => {
     >
       <Fade in={open}>
         <Box component="form" sx={style}>
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="stretch"
-            spacing={1.5}
-          >
-            <Typography id="transition-modal-title" variant="h3" sx={{ marginBottom: '1%' }}>
-              Contact Me
-            </Typography>
+          <form ref={form} onSubmit={sendEmail}>
             <Stack
-              direction="row"
-              justifyContent="space-around"
-              alignItems="center"
+              direction="column"
+              justifyContent="center"
+              alignItems="stretch"
               spacing={1.5}
-              sx={{ '& .MuiTextField-root': { width: '100%' } }}
             >
-              <TextField required id="first-name" onChange={(e) => setFirstName(e.target.value)} label="First Name" variant="outlined" size="small" />
-              <TextField id="last-name" onChange={(e) => setLastName(e.target.value)} label="Last Name" variant="outlined" size="small" />
+              <Typography id="transition-modal-title" variant="h3" sx={{ marginBottom: '1%' }}>
+                Contact Me
+              </Typography>
+              <Stack
+                direction="row"
+                justifyContent="space-around"
+                alignItems="center"
+                spacing={1.5}
+                sx={{ '& .MuiTextField-root': { width: '100%' } }}
+              >
+                <TextField required name="first_name" label="First Name" variant="outlined" size="small" />
+                <TextField name="last_name" label="Last Name" variant="outlined" size="small" />
+              </Stack>
+              <TextField required name="from_email" label="Email" variant="outlined" size="small" />
+              <TextField name="subject" label="Subject" variant="outlined" size="small" />
+              <TextField
+                required
+                name="message"
+                label="Message"
+                variant="outlined"
+                multiline
+                rows={10}
+              />
             </Stack>
-            <TextField required id="email" onChange={(e) => setEmail(e.target.value)} label="Email" variant="outlined" size="small" />
-            <TextField id="subject" onChange={(e) => setSubject(e.target.value)} label="Subject" variant="outlined" size="small" />
-            <TextField
-              required
-              id="message"
-              onChange={(e) => setMessage(e.target.value)}
-              label="Message"
-              variant="outlined"
-              multiline
-              rows={10}
-            />
-          </Stack>
-          <Button variant="outlined" onClick={sendEmail} sx={{ marginTop: '2%' }}>
-            Send
-          </Button>
+            <Button variant="outlined" onClick={sendEmail} sx={{ marginTop: '2%' }}>
+              Send
+            </Button>
+          </form>
         </Box>
       </Fade>
     </Modal>

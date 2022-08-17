@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Typography, Fade, Box, Modal, Backdrop, Stack,
@@ -26,7 +26,7 @@ const style = {
   textAlign: 'center',
 };
 
-const ContactModal = ({ open, handleClose }) => {
+const ContactModal = ({ open, handleClose, handleFormSubmitSuccess }) => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -34,12 +34,14 @@ const ContactModal = ({ open, handleClose }) => {
 
     emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
       .then((result) => {
-        console.log(result.text);
+        console.log(`Email successfully sent! Status: ${result.text}`);
+        handleFormSubmitSuccess(true);
+        handleClose();
       }, (error) => {
-        console.log(error.text);
+        console.log(`Email unsuccessfully sent! Error: ${error.text}`);
+        handleFormSubmitSuccess(false);
+        handleClose();
       });
-
-    handleClose();
   };
 
   return (
@@ -99,6 +101,7 @@ const ContactModal = ({ open, handleClose }) => {
 ContactModal.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
+  handleFormSubmitSuccess: PropTypes.func.isRequired,
 };
 
 export default ContactModal;

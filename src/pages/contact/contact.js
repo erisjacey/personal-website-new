@@ -4,15 +4,42 @@ import {
 } from '@mui/material';
 import VisibilitySensor from 'react-visibility-sensor';
 import ContactModal from 'myComponents/contactModal';
+import FormSubmitSnackbar from 'myComponents/formSubmitSnackbar';
 
 const Contact = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [openFormSubmitSnackbar, setOpenFormSubmitSnackbar] = useState(false);
+  const [formSubmitSuccess, setFormSubmitSuccess] = useState(false);
+  const handleOpenModal = () => {
+    setOpenModal(true);
+    setOpenFormSubmitSnackbar(false);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setOpenFormSubmitSnackbar(true);
+  };
+  const handleCloseFormSubmitSnackbar = () => setOpenFormSubmitSnackbar(false);
+  const handleFormSubmitSuccess = (success) => setFormSubmitSuccess(success);
 
   // Component visibility
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
+
+  const renderContactModal = () => (
+    <ContactModal
+      open={openModal}
+      handleClose={handleCloseModal}
+      handleFormSubmitSuccess={handleFormSubmitSuccess}
+    />
+  );
+
+  const renderFormSubmitSnackbar = () => (
+    <FormSubmitSnackbar
+      open={openFormSubmitSnackbar}
+      handleClose={handleCloseFormSubmitSnackbar}
+      success={formSubmitSuccess}
+    />
+  );
 
   return (
     <VisibilitySensor
@@ -77,14 +104,12 @@ const Contact = () => {
             timeout={{ enter: 2000, exit: 2000 }}
             container={containerRef.current}
           >
-            <Button variant="outlined" onClick={handleOpen} sx={{ marginTop: '3%' }}>
+            <Button variant="outlined" onClick={handleOpenModal} sx={{ marginTop: '3%' }}>
               Say Hi!
             </Button>
           </Slide>
-          <ContactModal
-            open={open}
-            handleClose={handleClose}
-          />
+          {renderContactModal()}
+          {renderFormSubmitSnackbar()}
           <Zoom
             direction="up"
             in={isVisible}

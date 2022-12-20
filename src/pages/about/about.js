@@ -1,30 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Container, Box, Typography, Link, Button, Modal, Fade, Backdrop,
+  Container, Box, Typography, Link, Button,
 } from '@mui/material';
+import AboutPicture from 'myAssets/about-picture.png';
 import Resume from 'myAssets/resume_eris-jacey-masagca_jan-2022.pdf';
+import { LINK_BLOG } from 'myConstants';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 200,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  borderRadius: '1em',
-  boxShadow: 24,
-  p: 4,
-  textAlign: 'center',
-};
-
-const About = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <Container id="about">
+const About = () => (
+  <Container id="about">
+    <Box
+      display="flex"
+      flexDirection="row"
+      alignItems="flex-start"
+      justifyContent="flex-start"
+      textAlign="justify"
+    >
       <Box
         display="flex"
         flexDirection="column"
@@ -67,31 +57,24 @@ const About = () => {
               Resume
             </Button>
           </Link>
-          <Button variant="outlined" sx={{ minWidth: '130px' }} onClick={handleOpen}>
-            View My Blog
-          </Button>
-          <Modal
-            aria-labelledby="transition-modal-title"
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-              timeout: 500,
-            }}
+          <Link
+            href={LINK_BLOG}
+            target="_blank"
           >
-            <Fade in={open}>
-              <Box sx={style}>
-                <Typography id="transition-modal-title" variant="h6" component="h2">
-                  Coming Soon!
-                </Typography>
-              </Box>
-            </Fade>
-          </Modal>
+            <Button variant="outlined" sx={{ minWidth: '130px' }}>
+              View My Blog
+            </Button>
+          </Link>
         </Box>
       </Box>
-    </Container>
-  );
-};
+      <img
+        src={AboutPicture}
+        alt="Handsome Boy"
+        height="200%"
+        fit="cover"
+      />
+    </Box>
+  </Container>
+);
 
 export default About;
